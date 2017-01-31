@@ -14,9 +14,9 @@ public:
 	double GetA();
 	double GetB();
 	double GetC();
-	void SetA(Point a);
-	void SetB(Point b);
-	void SetC(Point c);
+	void SetA(Point pt);
+	void SetB(Point pt);
+	void SetC(Point pt);
 	float Perimetre();
 	void Translation(point pt);
 	float Aire();
