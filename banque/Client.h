@@ -9,6 +9,7 @@ class Client {
 
 	private:
 		string nom ;
+		int num;
 		Compte* compte[100];
 		int nbComptes ;
 	public:
@@ -16,6 +17,7 @@ class Client {
 		string getNom();
 		void ajouterCompte();
 		void soldeAll();
+		int getNum();
 
 };
 
