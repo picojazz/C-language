@@ -1,16 +1,16 @@
 #include <iostream>
 #include "Compte.h"
+#include "Client.h"
+#include <string>
+
 using namespace std;
 
 int main(int argc, char const *argv[])
 {
-	Compte* c1 = new Compte();
-	Compte* c2 = new Compte();
-	c1->depot(2500);
-	c1->afficheSolde();
-	c1->virer(500,c2);
-	c1->afficheSolde();
-	c2->afficheSolde();
-
+	Client* cl1 = new Client("amadou");
+	cl1->ajouterCompte();
+	cl1->ajouterCompte();
+	cl1->getNom();
+	cl1->soldeAll();
 	return 0;
 }
