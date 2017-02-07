@@ -5,7 +5,7 @@
 using namespace std;
 
 Compte::Compte(){
-	solde = 0; 
+	solde = 1000; 
 	numero = rand() % 100000 ;
 }
 void Compte::depot(float somme){

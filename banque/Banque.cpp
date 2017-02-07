@@ -71,7 +71,14 @@ void Banque::operationClient(int num){
 			break;
 		case 2 : client[num]->soldeAll();
 			break;	
-		case 3 :
+		case 3 : cout << " ====== RETRAIT ======"<<endl;
+				 cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
+				 int n;
+				 cin >> n;
+				 cout << " Veuillez entrez la somme a retire "<<endl;
+				 float som;
+				 cin >> som;
+				 client[num]->pontRetrait(n,som);
 			break;
 		case 4 :
 			break;

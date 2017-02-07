@@ -18,6 +18,7 @@ class Client {
 		void ajouterCompte();
 		void soldeAll();
 		int getNum();
+		void pontRetrait(int,float);
 
 };
 

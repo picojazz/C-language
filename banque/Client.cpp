@@ -30,5 +30,20 @@ void Client::soldeAll(){
 int Client::getNum(){
 	return num;
 }
-
+void Client::pontRetrait(int num , float somm){
+	int p = -1 ;
+	for (int i = 0; i < nbComptes; i++)
+	{
+		if (num == compte[i]->getNumero())
+		{
+			p = i ;
+		}
+	}
+	if (p == -1)
+	{
+		cout << " Ce Compte n existe pas ... "<<endl;
+	}else{
+		compte[p]->retrait(somm);
+	}
+}
 
