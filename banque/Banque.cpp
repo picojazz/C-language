@@ -80,7 +80,14 @@ void Banque::operationClient(int num){
 				 cin >> som;
 				 client[num]->pontRetrait(n,som);
 			break;
-		case 4 :
+		case 4 : cout << " ====== DEPOT ======"<<endl;
+				 cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
+				 int n1;
+				 cin >> n1;
+				 cout << " Veuillez entrez la somme a depose "<<endl;
+				 float som1;
+				 cin >> som1;
+				 client[num]->pontDepot(n1,som1);
 			break;
 		case 5 :
 			break;

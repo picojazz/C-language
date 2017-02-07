@@ -19,6 +19,7 @@ class Client {
 		void soldeAll();
 		int getNum();
 		void pontRetrait(int,float);
+		void pontDepot(int,float);
 
 };
 
