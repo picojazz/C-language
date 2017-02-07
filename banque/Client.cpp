@@ -62,4 +62,28 @@ void Client::pontDepot(int num , float somm){
 		compte[p]->depot(somm);
 	}
 }
+void Client::pontVirement(int source,float som,int desti){
+	int p = -1 ;
+	int p2 = -1 ;
+	for (int i = 0; i < nbComptes; i++)
+	{
+		if (source == compte[i]->getNumero())
+		{
+			p = i ;
+		}
+	}
+	for (int i = 0; i < nbComptes; i++)
+	{
+		if (desti == compte[i]->getNumero())
+		{
+			p2 = i ;
+		}
+	}
+	if (p == -1 || p2 == -1)
+	{
+		cout << " erreur ! l'un ou les deux compte n'existe pas... "<<endl;
+	}else{
+		compte[p]->virer(som,compte[p2]);
+	}
 
+}

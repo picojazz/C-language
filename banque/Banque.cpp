@@ -68,7 +68,7 @@ void Banque::operationClient(int num){
 	cin >> choix ;
 	switch(choix){
 		case 1 : client[num]->ajouterCompte();
-			break;
+			break; 
 		case 2 : client[num]->soldeAll();
 			break;	
 		case 3 : cout << " ====== RETRAIT ======"<<endl;
@@ -89,7 +89,28 @@ void Banque::operationClient(int num){
 				 cin >> som1;
 				 client[num]->pontDepot(n1,som1);
 			break;
-		case 5 :
+		case 5 : cout << " ====== VIREMENT ======"<<endl;
+				 cout << " 1) Interne "<<endl;
+				 cout << " 2) Externe (vers un autre client)"<<endl;
+				 int c;
+				 cin >> c;
+				 switch(c){
+				 	case 1 : cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
+				             int n2;
+				             cin >> n2;
+				             cout << " Veuillez entrer le numero du compte destinataire"<<endl;
+				             int n3;
+				             cin >> n3;
+				             cout <<" Veuillez entrez le montant a virer"<<endl;
+				             float montant;
+				             cin >> montant;
+				             client[num]->pontVirement(n2,montant,n3);
+				 		break;
+				 	case 2 : cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
+				             int n4;
+				             cin >> n4 ;
+				 		break;
+				 }
 			break;
 		case 0 :
 			break;
