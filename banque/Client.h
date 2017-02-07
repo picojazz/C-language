@@ -21,6 +21,8 @@ class Client {
 		void pontRetrait(int,float);
 		void pontDepot(int,float);
 		void pontVirement(int,float,int);
+		Compte* getCompte(int);
+		void pontVirer(int,Compte*,float);
 
 };
 

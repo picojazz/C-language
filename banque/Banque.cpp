@@ -109,13 +109,45 @@ void Banque::operationClient(int num){
 				 	case 2 : cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
 				             int n4;
 				             cin >> n4 ;
+				             cout << " Veuillez entrez le nom du destinataire"<<endl;
+				             string name;
+				             cin.ignore();
+				             getline(cin,name);
+				             cout << " Veuillez entrez le numero de compte du destinataire"<<endl;
+				             int n5;
+				             cin >> n5;
+				             cout <<" Veuillez entrez le montant a virer"<<endl;
+				             float montant1;
+				             cin >> montant1;
+				             Client* c=getClient(name);
+				             Compte* cpt = c->getCompte(n5);
+				             if (name == c->getNom() && n5 == cpt->getNumero())
+				             {
+				             	
+				             	client[num]->pontVirer(n4,cpt,montant1);
+				             }else{
+				             	cout <<"erreur ! le client ou le compte n existe pas"<<endl;
+				             }
+				             
+				             
 				 		break;
 				 }
 			break;
-		case 0 :
+		case 0 : m=1;
 			break;
 	}
 		}while(m == 0);
 
 	
+}
+Client* Banque::getClient(string nom){
+	for (int i = 0; i < nbClients; i++)
+	{
+		if (nom == client[i]->getNom() )
+		{
+			return client[i];
+		}
+	}
+	Client* cl = new Client("fausse");
+	return cl;
 }

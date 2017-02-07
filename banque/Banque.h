@@ -19,6 +19,7 @@ class Banque {
 		void interactionAjoutClient();
 		void interactionOperationClient();
 		void operationClient(int);
+		Client* getClient(string nom);
 };
 
 

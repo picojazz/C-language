@@ -87,3 +87,31 @@ void Client::pontVirement(int source,float som,int desti){
 	}
 
 }
+Compte* Client::getCompte(int num){
+	for (int i = 0; i < nbComptes; i++)
+	{
+		if (num == compte[i]->getNumero())
+		{
+			return compte[i];
+		}
+	}
+	Compte* c = new Compte();
+	return c;
+}
+void Client::pontVirer(int sour,Compte* dest ,float som){
+	int p = -1 ;
+	for (int i = 0; i < nbComptes; i++)
+	{
+		if (sour == compte[i]->getNumero())
+		{
+			p = i ;
+		}
+	}
+	if (p == -1 )
+	{
+		cout << " erreur ! l'un ou les deux compte n'existe pas... "<<endl;
+	}else{
+		compte[p]->virer(som,dest);
+	}
+
+}
