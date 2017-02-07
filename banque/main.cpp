@@ -10,8 +10,8 @@ int main(int argc, char const *argv[])
 {
 	Banque* b= new Banque();
 	b->interactionAjoutClient();
-	b->interactionAjoutClient();
-	b->afficherBilan();
+	b->interactionOperationClient();
 	
+
 	return 0;
 }

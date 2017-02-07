@@ -51,5 +51,36 @@ void Banque::interactionOperationClient(){
 	}
 	int numClient;
 	cin >> numClient;
+	operationClient(numClient);
 
+}
+void Banque::operationClient(int num){
+	int m = 0;
+		do{
+	cout << " Quelle operations voullez-vous effectuer sur le client "<<client[num]->getNom()<<" ?"<<endl;
+	cout << " 1) Ouvrir un nouveau Compte"<<endl;
+	cout << " 2) Afficher un bilan"<<endl;
+	cout << " 3) Faire un retrait"<<endl;
+	cout << " 4) Faire un depot"<<endl;
+	cout << " 5) Faire un virement"<<endl;
+	cout << " 0) RETOUR"<<endl;
+	int choix;
+	cin >> choix ;
+	switch(choix){
+		case 1 : client[num]->ajouterCompte();
+			break;
+		case 2 : client[num]->soldeAll();
+			break;	
+		case 3 :
+			break;
+		case 4 :
+			break;
+		case 5 :
+			break;
+		case 0 :
+			break;
+	}
+		}while(m == 0);
+
+	
 }
