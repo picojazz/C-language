@@ -15,7 +15,7 @@ string Client::getNom(){
 }
 void Client::ajouterCompte(){
 	compte[nbComptes] = new Compte();
-	cout << " Vous avez cree un nouveau compte ..."<<endl;
+	cout << " Vous avez cree un nouveau compte N : "<<compte[nbComptes]->getNumero()<<endl;
 	nbComptes++;
 }
 void Client::soldeAll(){
@@ -23,6 +23,7 @@ void Client::soldeAll(){
 	for (int i = 0; i < nbComptes; i++)
 	{
 		all += compte[i]->getSolde();
+		compte[i]->afficheSolde();
 	}
 	cout << " Le solde de tous vos comptes est de : "<<all<<endl;
 }

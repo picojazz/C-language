@@ -5,7 +5,7 @@
 using namespace std;
 
 Compte::Compte(){
-	solde = 0;
+	solde = 0; 
 	numero = rand() % 100000 ;
 }
 void Compte::depot(float somme){
@@ -25,6 +25,7 @@ float Compte::getSolde(){
 	return solde;
 }
 void Compte::afficheSolde(){
+	cout << " Compte N : "<<numero<<endl;
 	cout <<" Votre solde est de : "<<solde<<endl;
 }
 void Compte::virer(float somme , Compte *cpt){
@@ -37,4 +38,6 @@ void Compte::virer(float somme , Compte *cpt){
 		cout << " Vous n'avez pas assez pour faire ce virement"<<endl;
 	}
 }
-
+int Compte::getNumero(){
+	return numero;
+}

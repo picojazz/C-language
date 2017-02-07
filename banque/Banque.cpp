@@ -11,8 +11,9 @@ Banque::Banque(){
 }
 void Banque::ajouterClient(string name){
 	client[nbClients] = new Client(name);
+	cout <<" Le client "<<name<<" a ete cree et a pour code client "<<client[nbClients]->getNum()<<endl;
+	client[nbClients]->ajouterCompte();
 	nbClients++ ;
-	cout <<" Le client "<<name<<" a ete cree ..."<<endl;
 }
 void Banque::bilanClient(int numero){
 	int p=-1;
@@ -39,7 +40,7 @@ void Banque::afficherBilan(){
 }
 void Banque::interactionAjoutClient(){
 	cout << " Entrez le nom du client" <<endl;
-	string nom;
+	string nom ;
 	getline(cin,nom);
 	ajouterClient(nom);
 }

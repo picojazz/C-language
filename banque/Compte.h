@@ -6,7 +6,7 @@ class Compte {
 	private:
 		int numero;
 		float solde;
-	
+	 
 	public:
 		Compte();
 		void depot(float);
@@ -14,6 +14,7 @@ class Compte {
 		float getSolde();
 		void afficheSolde();
 		void virer(float,Compte*);
+		int getNumero();
 
 };
 
