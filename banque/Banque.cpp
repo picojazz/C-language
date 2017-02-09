@@ -1,12 +1,13 @@
 #include <iostream>
 #include "Banque.h"
 #include "Client.h"
+#include <cstdlib>
 
 using namespace std;
  int Banque::nbClients(1);
 
 Banque::Banque(){
-	cout << " Bienvenue Dans PICOJAZZ Bank" <<endl;
+	
 	
 }
 void Banque::ajouterClient(string name){
@@ -33,12 +34,25 @@ void Banque::bilanClient(int numero){
 	}
 }
 void Banque::afficherBilan(){
+
+	if (nbClients == 1)
+	{
+		cout <<" La banque ne contient aucun client pour l'instant ..."<<endl;
+	}else{
+		cout << " \tBilan general" <<endl;
+		cout << " \t-------------" <<endl;
+
 	for (int i = 1; i < nbClients; ++i)
 	{
 		bilanClient(client[i]->getNum());
 	}
+		}
+
+	
 }
 void Banque::interactionAjoutClient(){
+	cout << " \tAjout d un client" <<endl;
+	cout << " \t-----------------" <<endl;
 	cout << " Entrez le nom du client" <<endl;
 	string nom ;
 	cin.ignore();
@@ -46,18 +60,32 @@ void Banque::interactionAjoutClient(){
 	ajouterClient(nom);
 }
 void Banque::interactionOperationClient(){
-	for (int i = 1; i < nbClients; i++)
+	
+
+	if (nbClients == 1)
 	{
-		cout <<i<<") " <<client[i]->getNom()<<endl;
+
+		cout <<" La banque ne contient aucun client pour l'instant ..."<<endl;
+	}else{
+		cout << " \tListe des clients" <<endl;
+		cout << " \t-----------------" <<endl;
+			for (int i = 1; i < nbClients; i++)
+	{
+			cout <<i<<") " <<client[i]->getNom()<<endl;
+		
 	}
+	cout << " Veuillez choisir un client" <<endl;
 	int numClient;
 	cin >> numClient;
 	operationClient(numClient);
+		}
 
 }
 void Banque::operationClient(int num){
+		
 	int m = 0;
 		do{
+			system("cls");
 	cout << " Quelle operations voullez-vous effectuer sur le client "<<client[num]->getNom()<<" ?"<<endl;
 	cout << " 1) Ouvrir un nouveau Compte"<<endl;
 	cout << " 2) Afficher un bilan"<<endl;
@@ -68,11 +96,11 @@ void Banque::operationClient(int num){
 	int choix;
 	cin >> choix ;
 	switch(choix){
-		case 1 : client[num]->ajouterCompte();
+		case 1 :system("cls"); client[num]->ajouterCompte(); system("pause");
 			break; 
-		case 2 : bilanClient(client[num]->getNum());
+		case 2 :system("cls"); bilanClient(client[num]->getNum()); system("pause");
 			break;	
-		case 3 : cout << " ====== RETRAIT ======"<<endl;
+		case 3 :system("cls"); cout << " ====== RETRAIT ======"<<endl;
 				 cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
 				 int n;
 				 cin >> n;
@@ -80,23 +108,26 @@ void Banque::operationClient(int num){
 				 float som;
 				 cin >> som;
 				 client[num]->pontRetrait(n,som);
+				 system("pause");
 			break;
-		case 4 : cout << " ====== DEPOT ======"<<endl;
+		case 4 :system("cls"); cout << " ====== DEPOT ======"<<endl;
 				 cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
 				 int n1;
 				 cin >> n1;
 				 cout << " Veuillez entrez la somme a depose "<<endl;
 				 float som1;
 				 cin >> som1;
-				 client[num]->pontDepot(n1,som1);
+				 client[num]->pontDepot(n1,som1); system("pause");
 			break;
-		case 5 : cout << " ====== VIREMENT ======"<<endl;
+		case 5 :system("cls"); cout << " ====== VIREMENT ======"<<endl;
 				 cout << " 1) Interne "<<endl;
 				 cout << " 2) Externe (vers un autre client)"<<endl;
 				 int c;
 				 cin >> c;
 				 switch(c){
-				 	case 1 : cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
+				 	case 1 :system("cls");
+				 			cout << " ====== VIREMENT INTERNE ======"<<endl;
+				 			 cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
 				             int n2;
 				             cin >> n2;
 				             cout << " Veuillez entrer le numero du compte destinataire"<<endl;
@@ -105,9 +136,11 @@ void Banque::operationClient(int num){
 				             cout <<" Veuillez entrez le montant a virer"<<endl;
 				             float montant;
 				             cin >> montant;
-				             client[num]->pontVirement(n2,montant,n3);
+				             client[num]->pontVirement(n2,montant,n3); system("pause");
 				 		break;
-				 	case 2 : cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
+				 	case 2 :system("cls");
+				 			 cout << " ====== VIREMENT EXTERNE ======"<<endl;
+				 			 cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
 				             int n4;
 				             cin >> n4 ;
 				             cout << " Veuillez entrez le nom du destinataire"<<endl;
@@ -129,7 +162,7 @@ void Banque::operationClient(int num){
 				             }else{
 				             	cout <<"erreur ! le client ou le compte n existe pas"<<endl;
 				             }
-				             
+				             system("pause");
 				             
 				 		break;
 				 }
@@ -155,6 +188,11 @@ Client* Banque::getClient(string nom){
 void Banque::interaction(){
 	int n = 0;
 		do{
+			system("cls");
+	cout <<" \tBienvenue dans la Banque PICOJAZZ"<<endl;
+	cout <<" \t---------------------------------"<<endl;
+	cout <<" \t          MENU GENERAL"<<endl;
+	cout <<" \t          ------------"<<endl;
 	cout <<" Quelle operation voulez-vous effectuer ?"<<endl;
 	cout <<" 1) Ajouter un Client "<<endl;
 	cout <<" 2) Effectuer une operation sur un client "<<endl;
@@ -163,14 +201,17 @@ void Banque::interaction(){
 	int choix;
 	cin >> choix;
 	switch(choix){
-		case 1 : interactionAjoutClient();
+		case 1 : system("cls"); interactionAjoutClient(); system("pause");
 			break;
-		case 2 : interactionOperationClient();
+		case 2 : system("cls"); interactionOperationClient(); system("pause");
 			break;
-		case 3 : afficherBilan();
+		case 3 : system("cls"); afficherBilan(); system("pause");
 			break;
 		case 0 : n = 1;
 			break;
 	}
 	   }while(n == 0);
+}
+int Banque::getNbClients(){
+	return nbClients;
 }

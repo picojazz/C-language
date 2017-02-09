@@ -9,8 +9,9 @@ class Banque {
 
 	private:
 		Client* client[1000];
-	public:
 		static int nbClients ;
+	public:
+		static int getNbClients();
 		Banque();
 		void ajouterClient(string name);
 		void bilanClient(int);

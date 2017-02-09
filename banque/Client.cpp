@@ -8,7 +8,7 @@ using namespace std;
 Client::Client(string name){
 	nom = name ;
 	nbComptes = 0 ;
-	num = Banque::nbClients ;
+	num = Banque::getNbClients() ;
 }
 string Client::getNom(){
 	return nom;
