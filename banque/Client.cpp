@@ -25,7 +25,7 @@ void Client::soldeAll(){
 		all += compte[i]->getSolde();
 		compte[i]->afficheSolde();
 	}
-	cout << " Le solde de tous vos comptes est de : "<<all<<endl;
+	cout << " Le solde de tous les comptes est de : "<<all<<endl;
 }
 int Client::getNum(){
 	return num;

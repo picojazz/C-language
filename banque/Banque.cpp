@@ -28,7 +28,7 @@ void Banque::bilanClient(int numero){
 	{
 		cout << " Ce client n existe pas ... "<<endl;
 	}else{
-		cout << " Client : "<<client[p]->getNom()<<endl;
+		cout << "======= Client : "<<client[p]->getNom()<<" ======="<<endl;
 		client[p]->soldeAll();
 	}
 }
@@ -41,6 +41,7 @@ void Banque::afficherBilan(){
 void Banque::interactionAjoutClient(){
 	cout << " Entrez le nom du client" <<endl;
 	string nom ;
+	cin.ignore();
 	getline(cin,nom);
 	ajouterClient(nom);
 }
@@ -69,7 +70,7 @@ void Banque::operationClient(int num){
 	switch(choix){
 		case 1 : client[num]->ajouterCompte();
 			break; 
-		case 2 : client[num]->soldeAll();
+		case 2 : bilanClient(client[num]->getNum());
 			break;	
 		case 3 : cout << " ====== RETRAIT ======"<<endl;
 				 cout << " Veuillez entrer le numero du compte que vous voulez utiliser"<<endl;
@@ -150,4 +151,26 @@ Client* Banque::getClient(string nom){
 	}
 	Client* cl = new Client("fausse");
 	return cl;
+}
+void Banque::interaction(){
+	int n = 0;
+		do{
+	cout <<" Quelle operation voulez-vous effectuer ?"<<endl;
+	cout <<" 1) Ajouter un Client "<<endl;
+	cout <<" 2) Effectuer une operation sur un client "<<endl;
+	cout <<" 3) Afficher un bilan general de la Banque "<<endl;
+	cout <<" 0) QUITTER"<<endl;
+	int choix;
+	cin >> choix;
+	switch(choix){
+		case 1 : interactionAjoutClient();
+			break;
+		case 2 : interactionOperationClient();
+			break;
+		case 3 : afficherBilan();
+			break;
+		case 0 : n = 1;
+			break;
+	}
+	   }while(n == 0);
 }

@@ -26,7 +26,7 @@ float Compte::getSolde(){
 }
 void Compte::afficheSolde(){
 	cout << " Compte N : "<<numero<<endl;
-	cout <<" Votre solde est de : "<<solde<<endl;
+	cout <<" Le solde est de : "<<solde<<endl;
 }
 void Compte::virer(float somme , Compte *cpt){
 	if (somme <= solde)

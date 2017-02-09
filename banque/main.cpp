@@ -9,10 +9,8 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
 	Banque* b= new Banque();
-	b->interactionAjoutClient();
-	b->interactionAjoutClient();
-	b->interactionOperationClient();
-	b->afficherBilan();
+	b->interaction();
+	
 	
 
 	return 0;
