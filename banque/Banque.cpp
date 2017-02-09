@@ -77,7 +77,22 @@ void Banque::interactionOperationClient(){
 	cout << " Veuillez choisir un client" <<endl;
 	int numClient;
 	cin >> numClient;
+	int p = -1;
+	for (int i = 0; i < nbClients; i++)
+	{
+		if (numClient == i)
+		{	
+			p=1;
+		}
+	}
+	if (p == -1 || numClient <=0)
+	{
+		cout <<" Ce client n existe pas.."<<endl;
+		
+		
+	}else{
 	operationClient(numClient);
+	}
 		}
 
 }
